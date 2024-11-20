@@ -2,7 +2,8 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Navbar } from "@/widgets/layout";
 import routes from "@/routes";
-import Footer from "@/widgets/layout/Footer"; // Import Footer component
+import { Footer } from "@/widgets/layout/footer";  // Correct path with alias
+
 
 function App() {
   return (
