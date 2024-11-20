@@ -4,8 +4,10 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: {
-      '@': '/src', // Adjust if necessary
+  alias: {
+      '@': path.resolve(__dirname, 'src'),  // Menetapkan alias '@' untuk folder 'src'
+    }
+
     }
   }
 });
