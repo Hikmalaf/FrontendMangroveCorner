@@ -70,7 +70,7 @@ export function Calculator() {
   
     try {
       // Gantilah URL API dengan URL publik Railway
-      const response = await axios.post("https://mangrovecarbonasik.railway.app/api/predict", formData, {
+      const response = await axios.post("https://mangrovecarbonasik-production.up.railway.app/api/predict", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
   
