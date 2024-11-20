@@ -64,26 +64,27 @@ export function Calculator() {
       alert("Please upload an image.");
       return;
     }
-
+  
     const formData = new FormData();
     formData.append("image", image);
-
+  
     try {
-      const response = await axios.post("http://localhost:5000/api/predict", formData, {
+      // Gantilah URL API dengan URL publik Railway
+      const response = await axios.post("https://mangrovecarbonasik.railway.app/api/predict", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-
+  
       if (response.data.species_name) {
         setPredictionData({
           species_name: response.data.species_name,
           accuracy: response.data.confidence ? (response.data.confidence * 100).toFixed(2) : "N/A",
         });
-
+  
         setSelectedSpecies(response.data.species_name);
       } else {
         alert("No species prediction found.");
       }
-
+  
       if (response.data.image_base64) {
         const base64Image = response.data.image_base64;
         setImagePreview(`data:image/png;base64,${base64Image}`);
@@ -93,6 +94,7 @@ export function Calculator() {
       alert("Failed to identify species. Please try again.");
     }
   };
+  
 
   const handleCalculate = () => {
     let totalBiomass = 0;
